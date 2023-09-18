@@ -8,6 +8,7 @@ export class Bike {
         public description: string,
         public ratings: number,
         public imageUrls: string[],
-        public id: string
+        public id: string,
+        public location: string // Adicionar o atributo de localização
     ) {}
 }
