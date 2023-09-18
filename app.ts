@@ -4,8 +4,8 @@ import crypto from 'crypto';
 import * as bcrypt from 'bcrypt';
 
 export class App {
-    users: User[] = []
-    bikes: Bike[] = []
+    users: User[] = [];
+    bikes: Bike[] = [];
 
     findUser(email: string): User | undefined {
         return this.users.find(user => user.email === email);
@@ -90,5 +90,14 @@ export class App {
         }
 
         bike.available = true; // Definir a bicicleta como disponível
+    }
+
+    updateBikeLocation(bikeId: string, newLocation: string): void {
+        const bike = this.bikes.find(bike => bike.id === bikeId);
+        if (!bike) {
+            throw new Error('Bike not found.');
+        }
+
+        bike.location = newLocation; // Atualizar a localização da bicicleta
     }
 }
